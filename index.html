@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peintel – Peinture & Rénovation Premium</title>
+<meta name="description" content="Entreprise de peinture et rénovation premium. Devis gratuit, intervention rapide, finition haut de gamme.">
+<meta property="og:title" content="Peintel – Peinture & Rénovation">
+<meta property="og:description" content="Finitions haut de gamme. Intervention rapide. Résultats garantis.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container nav">
+    <div class="logo">
+      <span class="logo-p">P</span>eintel
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button onclick="setLang('fr')" id="btn-fr" class="lang-active">FR</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+        <button onclick="setLang('ar')" id="btn-ar">AR</button>
+      </div>
+      <button class="btn-primary" onclick="openModal()" data-i18n="cta">Demander un devis</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-shape shape1"></div>
+    <div class="hero-shape shape2"></div>
+    <div class="hero-shape shape3"></div>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag" data-i18n="hero_tag">Excellence · Précision · Rapidité</div>
+      <h1 data-i18n="hero_title">Entreprise de Peinture &amp; Rénovation</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Finitions haut de gamme. Intervention rapide. Résultats garantis.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="openModal()" data-i18n="cta">Demander un devis</button>
+        <a href="#services" class="btn-outline" data-i18n="cta2">Voir nos services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-i18n="stat1_num">+350</span><span class="stat-label" data-i18n="stat1_label">Projets réalisés</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-i18n="stat2_num">100%</span><span class="stat-label" data-i18n="stat2_label">Satisfaction</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-i18n="stat3_num">24h</span><span class="stat-label" data-i18n="stat3_label">Intervention</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <div class="hero-img-placeholder">
+          <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="url(#heroGrad)"/>
+            <defs>
+              <linearGradient id="heroGrad" x1="0" y1="0" x2="400" y2="500" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0d3b66"/>
+                <stop offset="100%" stop-color="#1b6ca8"/>
+              </linearGradient>
+            </defs>
+            <!-- Paint roller icon -->
+            <rect x="140" y="160" width="120" height="60" rx="10" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+            <rect x="145" y="165" width="110" height="50" rx="8" fill="rgba(255,255,255,0.1)"/>
+            <rect x="192" y="220" width="8" height="80" fill="rgba(255,255,255,0.4)"/>
+            <rect x="180" y="295" width="32" height="12" rx="4" fill="rgba(255,255,255,0.3)"/>
+            <!-- Paint stripes -->
+            <rect x="80" y="320" width="240" height="8" rx="4" fill="rgba(255,255,255,0.15)"/>
+            <rect x="80" y="338" width="180" height="8" rx="4" fill="rgba(255,255,255,0.1)"/>
+            <rect x="80" y="356" width="220" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+            <text x="200" y="420" fill="rgba(255,255,255,0.6)" font-size="14" text-anchor="middle" font-family="sans-serif">Votre image ici</text>
+          </svg>
+        </div>
+        <div class="hero-badge">
+          <div class="badge-inner">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="badge">Devis Gratuit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN SECTION -->
+<section class="pain">
+  <div class="container pain-inner">
+    <div class="pain-problems">
+      <div class="pain-item">
+        <div class="pain-icon">⏳</div>
+        <p data-i18n="pain1">Vos travaux traînent ?</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">😞</div>
+        <p data-i18n="pain2">Finitions médiocres ?</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🚫</div>
+        <p data-i18n="pain3">Délais non respectés ?</p>
+      </div>
+    </div>
+    <div class="pain-solution">
+      <div class="solution-line"></div>
+      <p data-i18n="pain_solution">Peintel apporte rigueur, précision et qualité professionnelle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="services_tag">Ce que nous faisons</div>
+      <h2 data-i18n="services_title">Nos Services</h2>
+    </div>
+    <div class="grid" id="servicesList"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-header light">
+      <div class="section-tag" data-i18n="process_tag">Simple & Rapide</div>
+      <h2 data-i18n="process_title">Comment nous travaillons</h2>
+    </div>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3 data-i18n="step1_title">Contact rapide</h3>
+          <p data-i18n="step1_desc">Via WhatsApp ou formulaire</p>
+        </div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3 data-i18n="step2_title">Devis gratuit</h3>
+          <p data-i18n="step2_desc">Sous 24h sans engagement</p>
+        </div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3 data-i18n="step3_title">Planification</h3>
+          <p data-i18n="step3_desc">À votre convenance</p>
+        </div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3 data-i18n="step4_title">Réalisation</h3>
+          <p data-i18n="step4_desc">Professionnelle & garantie</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-bg">
+    <div class="cta-shape"></div>
+  </div>
+  <div class="container cta-inner">
+    <h2 data-i18n="final_cta_title">Prêt à transformer votre espace ?</h2>
+    <p data-i18n="final_cta_sub">Demandez votre devis gratuit dès maintenant.</p>
+    <button class="btn-primary btn-large" onclick="openModal()" data-i18n="cta">Demander un devis</button>
+    <div class="whatsapp-direct" onclick="sendDirectWhatsApp()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i18n="wa_direct">Contacter directement sur WhatsApp</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">Peintel</div>
+    <p class="footer-copy">© 2026 Peintel. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="devisModal" onclick="closeModalOutside(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 data-i18n="modal_title">Demander un devis</h3>
+    <p class="modal-sub" data-i18n="modal_sub">Nous vous répondons sous 24h</p>
+    <select id="serviceSelect"></select>
+    <input type="text" id="address" data-i18n-placeholder="placeholder_address" placeholder="Adresse / Ville">
+    <input type="text" id="phone" data-i18n-placeholder="placeholder_phone" placeholder="Votre téléphone">
+    <textarea id="details" data-i18n-placeholder="placeholder_details" placeholder="Détails supplémentaires (optionnel)" rows="3"></textarea>
+    <button class="btn-primary btn-full" onclick="sendWhatsApp()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i18n="send_wa">Envoyer via WhatsApp</span>
+    </button>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
