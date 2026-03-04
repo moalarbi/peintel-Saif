@@ -132,7 +132,7 @@ function sendWhatsApp() {
   };
 
   const msg = msgs[currentLang] || msgs['fr'];
-  window.open(`https://wa.me/33774555311?text=${msg}`, '_blank');
+  window.open(`https://wa.me/33605537778?text=${msg}`, '_blank');
   closeModal();
 }
 
@@ -142,7 +142,7 @@ function sendDirectWhatsApp() {
     en: 'Hello Peintel 👋, I would like to know more about your services.',
     ar: 'مرحبا Peintel 👋، أريد الاستفسار عن خدماتكم.',
   };
-  window.open(`https://wa.me/33774555311?text=${encodeURIComponent(msgs[currentLang] || msgs.fr)}`, '_blank');
+  window.open(`https://wa.me/33605537778?text=${encodeURIComponent(msgs[currentLang] || msgs.fr)}`, '_blank');
 }
 
 // Header scroll effect
