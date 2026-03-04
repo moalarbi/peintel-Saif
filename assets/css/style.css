@@ -662,7 +662,7 @@ footer {
 [dir="rtl"] .hero-badge { left: auto; right: 24px; }
 [dir="rtl"] .modal-close { right: auto; left: 16px; }
 [dir="rtl"] .step-arrow { transform: rotate(90deg) scaleX(-1); }
-[dir="rtl"] .footer-logo { flex-direction: row-reverse; }
+[dir="rtl"] .logo, [dir="rtl"] .footer-logo { flex-direction: row; }
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {

@@ -46,6 +46,22 @@ async function setLang(lang) {
       if (data[key]) el.textContent = data[key];
     });
 
+    // Update Logo Text
+    const logoText = document.querySelector('.logo-text');
+    if (logoText) {
+      if (lang === 'ar') {
+        logoText.innerHTML = 'بينتل';
+      } else {
+        logoText.innerHTML = '<span class="logo-p">P</span>eintel';
+      }
+    }
+
+    // Update Footer Logo Text
+    const footerLogoText = document.querySelector('.footer-logo span');
+    if (footerLogoText) {
+      footerLogoText.textContent = (lang === 'ar') ? 'بينتل' : 'Peintel';
+    }
+
     // Translate placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.dataset.i18nPlaceholder;
