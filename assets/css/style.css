@@ -126,7 +126,7 @@ header.scrolled {
   object-fit: contain;
 }
 .logo-p {
-  color: var(--gold);
+  color: var(--blue-main);
 }
 [dir="rtl"] .logo {
   flex-direction: row-reverse;
