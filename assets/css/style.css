@@ -557,9 +557,18 @@ footer {
   gap: 16px;
 }
 .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 22px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--white);
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 .footer-copy {
   font-size: 13px;
@@ -653,6 +662,7 @@ footer {
 [dir="rtl"] .hero-badge { left: auto; right: 24px; }
 [dir="rtl"] .modal-close { right: auto; left: 16px; }
 [dir="rtl"] .step-arrow { transform: rotate(90deg) scaleX(-1); }
+[dir="rtl"] .footer-logo { flex-direction: row-reverse; }
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
