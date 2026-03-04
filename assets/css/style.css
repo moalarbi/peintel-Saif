@@ -115,14 +115,25 @@ header.scrolled {
 
 /* ===== LOGO ===== */
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 26px;
   color: var(--blue-main);
   letter-spacing: -0.5px;
 }
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
 .logo-p {
   color: var(--gold);
+}
+[dir="rtl"] .logo {
+  flex-direction: row-reverse;
 }
 
 /* ===== LANG SWITCH ===== */
