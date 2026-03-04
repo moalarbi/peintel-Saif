@@ -1,6 +1,7 @@
 // ===== PEINTEL MAIN JS =====
 
 let currentLang = 'fr';
+let translationCache = {}; // تخزين مؤقت للترجمات
 
 const serviceIcons = ['🎨', '🏠', '💨', '🌡️', '⬜', '🪵', '🧱'];
 
@@ -27,8 +28,17 @@ async function setLang(lang) {
   if (activeBtn) activeBtn.classList.add('lang-active');
 
   try {
-    const res = await fetch(`locales/${lang}.json`);
-    const data = await res.json();
+    // تحقق من التخزين المؤقت أولاً
+    let data;
+    if (translationCache[lang]) {
+      data = translationCache[lang];
+    } else {
+      // إذا لم تكن موجودة في الذاكرة المؤقتة، حمّلها من الملف
+      const res = await fetch(`locales/${lang}.json`);
+      data = await res.json();
+      // احفظها في الذاكرة المؤقتة للاستخدام المستقبلي
+      translationCache[lang] = data;
+    }
 
     // Translate elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
