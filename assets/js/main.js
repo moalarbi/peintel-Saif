@@ -4,6 +4,16 @@ let currentLang = 'fr';
 
 const serviceIcons = ['🎨', '🏠', '💨', '🌡️', '⬜', '🪵', '🧱'];
 
+const serviceBackgroundImages = [
+  'assets/images/service-interior.jpg', // Peinture intérieure
+  'assets/images/service-exterior.jpg', // Peinture extérieure
+  'assets/images/service-spray.jpg',    // Peinture au pistolet
+  'assets/images/service-insulating.jpg', // Peinture isolante thermique
+  'assets/images/service-concrete.jpg', // Béton ciré
+  'assets/images/service-floor.jpg',    // Revêtement de sol
+  'assets/images/service-facade.jpg'    // Rénovation de façade
+];
+
 async function setLang(lang) {
   currentLang = lang;
 
@@ -39,8 +49,12 @@ async function setLang(lang) {
       const card = document.createElement('div');
       card.className = 'service-card';
       card.innerHTML = `
-        <div class="service-icon">${serviceIcons[i] || '🖌️'}</div>
-        <div class="service-name">${s}</div>
+        <div class="service-bg-image" style="background-image: url(${serviceBackgroundImages[i] || ''});"></div>
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-icon">${serviceIcons[i] || '🖌️'}</div>
+          <div class="service-name">${s}</div>
+        </div>
       `;
       grid.appendChild(card);
     });

@@ -386,27 +386,55 @@ header.scrolled {
   gap: 20px;
 }
 .service-card {
+  position: relative;
+  overflow: hidden;
   padding: 28px;
   background: var(--off-white);
   border-radius: var(--radius);
   border: 1px solid transparent;
   transition: var(--transition);
   cursor: default;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .service-card:hover {
-  background: white;
   border-color: rgba(27,108,168,0.15);
   box-shadow: var(--shadow);
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.02);
+}
+.service-bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+.service-card:hover .service-bg-image {
+  transform: scale(1.1);
+}
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.service-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
 }
 .service-icon {
-  font-size: 28px;
+  font-size: 40px;
   margin-bottom: 12px;
 }
 .service-name {
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--blue-deep);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
 }
 
 /* ===== PROCESS ===== */
@@ -632,9 +660,42 @@ footer {
 }
 
 /* ===== RESPONSIVE ===== */
+.hero-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  display: none;
+}
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  display: none;
+}
+
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { display: none; }
+  .hero-video-bg, .hero-video-overlay {
+    display: block;
+  }
+  .hero-content h1, .hero-sub, .hero-tag, .stat-num, .stat-label {
+    color: var(--white);
+  }
+  .hero-tag {
+    border-color: rgba(255,255,255,0.4);
+  }
+  .stat-divider {
+    background: rgba(255,255,255,0.2);
+  }
   .pain-inner { grid-template-columns: 1fr; }
   .process-steps { flex-direction: column; }
   .step-arrow { transform: rotate(90deg); }
