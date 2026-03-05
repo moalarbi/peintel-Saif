@@ -3,7 +3,8 @@
 let currentLang = 'fr';
 let translationCache = {}; // تخزين مؤقت للترجمات
 
-const serviceIcons = ['🎨', '🏠', '💨', '🌡️', '⬜', '🪵', '🧱'];
+// const serviceIcons = ['🎨', '🏠', '💨', '🌡️', '⬜', '🪵', '🧱'];
+const serviceIcons = [];
 
 const serviceBackgroundImages = [
   'assets/images/service-interior.jpg', // Peinture intérieure
