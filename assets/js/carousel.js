@@ -15,11 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
       modifier: 1,
       slideShadows: true,
     },
-    autoplay: {
-      delay: 7000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
+    // Autoplay disabled - carousel only moves on user interaction
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -29,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     on: {
       init: function () {
+        // Pause all videos on initialization
         this.slides.forEach(slide => {
           const video = slide.querySelector('video');
           if (video) {
@@ -36,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             video.currentTime = 0;
           }
         });
+        // Play only the center (active) video
         const activeSlide = this.slides[this.activeIndex];
         const activeVideo = activeSlide.querySelector('video');
         if (activeVideo) {
@@ -43,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       },
       slideChangeTransitionStart: function () {
+        // Pause all videos when slide change starts
         this.slides.forEach(slide => {
           const video = slide.querySelector('video');
           if (video) {
@@ -51,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       },
       slideChangeTransitionEnd: function () {
+        // Play only the center (active) video after slide change completes
         const activeSlide = this.slides[this.activeIndex];
         const activeVideo = activeSlide.querySelector('video');
         if (activeVideo) {
