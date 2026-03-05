@@ -14,6 +14,28 @@
 .swiper-wrapper, 
 .swiper-slide {
   direction: ltr !important;
+  unicode-bidi: isolate;
+}
+
+/* Specific Swiper RTL overrides to ensure LTR behavior */
+.swiper-portfolio {
+  --swiper-navigation-sides-offset: 10px;
+}
+
+[dir="rtl"] .swiper-portfolio .swiper-button-next {
+  right: 10px !important;
+  left: auto !important;
+  transform: rotate(0deg) !important;
+}
+
+[dir="rtl"] .swiper-portfolio .swiper-button-prev {
+  left: 10px !important;
+  right: auto !important;
+  transform: rotate(0deg) !important;
+}
+
+[dir="rtl"] .swiper-portfolio .swiper-wrapper {
+  flex-direction: row !important;
 }
 
 /* Animated Gradient Wave Background */
