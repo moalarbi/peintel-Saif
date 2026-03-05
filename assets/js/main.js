@@ -85,7 +85,7 @@ async function setLang(lang) {
         <div class="service-bg-image" style="background-image: url(${serviceBackgroundImages[i] || ''});"></div>
         <div class="service-overlay"></div>
         <div class="service-content">
-          <div class="service-icon">${serviceIcons[i] || '🖌️'}</div>
+          <!-- <div class="service-icon">${serviceIcons[i] || '🖌️'}</div> -->
           <div class="service-name">${s}</div>
         </div>
       `;
@@ -184,6 +184,15 @@ function sendWhatsApp() {
 
   const msg = whatsappMsgs[currentLang] || whatsappMsgs.fr;
   window.open(`https://wa.me/33605537778?text=${msg}`, '_blank');
+  
+  // Success message
+  const successMsgs = {
+    fr: 'Votre demande a été envoyée ! Nous vous répondrons bientôt.',
+    en: 'Your request has been sent! We will get back to you soon.',
+    ar: 'تم إرسال طلبك بنجاح! سنقوم بالرد عليك قريباً.'
+  };
+  alert(successMsgs[currentLang] || successMsgs.fr);
+  
   closeModal();
 }
 

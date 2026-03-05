@@ -145,6 +145,27 @@ header.scrolled {
   flex-direction: row-reverse;
 }
 
+[dir="rtl"] .hero-content,
+[dir="rtl"] .section-header,
+[dir="rtl"] .footer-inner,
+[dir="rtl"] .modal-content {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-sub {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="rtl"] .hero-btns,
+[dir="rtl"] .hero-stats {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .step-arrow {
+  transform: rotate(180deg);
+}
+
 /* ===== LANG SWITCH ===== */
 .lang-switch {
   display: flex;
