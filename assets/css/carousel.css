@@ -1,0 +1,121 @@
+/* ===== PORTFOLIO CAROUSEL CSS ===== */
+
+.portfolio-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, var(--blue-deep) 0%, var(--dark) 100%);
+}
+
+/* Animated Gradient Wave Background */
+.portfolio-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(13, 59, 102, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(201, 168, 76, 0.1) 0%, transparent 50%);
+  animation: waveGradient 15s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes waveGradient {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(5%, 5%) rotate(5deg); }
+}
+
+.portfolio-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.portfolio-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.portfolio-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+}
+
+/* Swiper Container */
+.swiper-portfolio {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Video Styling */
+.portfolio-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slide Effects */
+.swiper-slide-active {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  transform: scale(0.85) !important;
+  opacity: 0.6 !important;
+  filter: blur(4px) !important;
+}
+
+.swiper-slide-prev {
+  transform: scale(0.85) rotateY(15deg) !important;
+}
+
+.swiper-slide-next {
+  transform: scale(0.85) rotateY(-15deg) !important;
+}
+
+/* Navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--gold) !important;
+  transition: var(--transition);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.2);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 280px;
+    height: 280px;
+  }
+  .portfolio-section {
+    padding: 60px 0;
+  }
+}

@@ -18,7 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/images/logo.png">
-<link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/carousel.css">
 </head>
 <body>
 
@@ -126,6 +128,49 @@
   </div>
 </section>
 
+<!-- PORTFOLIO CAROUSEL -->
+<section class="portfolio-section" id="portfolio">
+  <div class="container portfolio-inner">
+    <div class="portfolio-header">
+      <h2 data-i18n="portfolio_title">Nos dernières réalisations</h2>
+      <p data-i18n="portfolio_sub">Découvrez quelques-uns de nos projets récents.</p>
+    </div>
+    
+    <div class="swiper swiper-portfolio" aria-label="Portfolio Video Carousel">
+      <div class="swiper-wrapper">
+        <!-- Video 1 -->
+        <div class="swiper-slide">
+          <video class="portfolio-video" muted loop playsinline preload="metadata">
+            <source src="https://cdn.imgchest.com/files/b7eca35d92b8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- Video 2 -->
+        <div class="swiper-slide">
+          <video class="portfolio-video" muted loop playsinline preload="metadata">
+            <source src="https://cdn.imgchest.com/files/1b362e15715d.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- Video 3 -->
+        <div class="swiper-slide">
+          <video class="portfolio-video" muted loop playsinline preload="metadata">
+            <source src="https://cdn.imgchest.com/files/3268a1de41a2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- Video 4 -->
+        <div class="swiper-slide">
+          <video class="portfolio-video" muted loop playsinline preload="metadata">
+            <source src="https://cdn.imgchest.com/files/c7458be78fd4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
@@ -222,6 +267,8 @@
   </div>
 </div>
 
-<script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/carousel.js"></script>
 </body>
 </html>
