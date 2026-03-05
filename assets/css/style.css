@@ -995,3 +995,110 @@ footer {
 .whatsapp-float.show {
   animation: pulse-blue 2s infinite;
 }
+
+
+/* ===== WHATSAPP FAB (Floating Action Button) ===== */
+/* Component: WhatsApp Floating Action Button
+   Size: 56px (mobile), 60px (desktop)
+   Position: Fixed bottom-right with safe-area inset for notched devices
+   Animation: Subtle pulse glow every 2.8s
+*/
+
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.18),
+      0 0 0 0 rgba(27, 118, 209, 0.25);
+  }
+  50% {
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.18),
+      0 0 0 12px rgba(27, 118, 209, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.18),
+      0 0 0 0 rgba(27, 118, 209, 0);
+  }
+}
+
+.whatsapp-fab {
+  position: fixed;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0B4A7A 0%, #1B76D1 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  z-index: 999;
+  transition: var(--transition);
+  animation: whatsapp-pulse 2.8s infinite;
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+.whatsapp-fab:active {
+  transform: scale(0.95);
+}
+
+.whatsapp-fab svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-fab {
+    animation: none;
+  }
+  
+  .whatsapp-fab:hover {
+    transform: none;
+  }
+  
+  .whatsapp-fab:active {
+    transform: none;
+  }
+}
+
+/* Desktop size adjustment */
+@media (min-width: 768px) {
+  .whatsapp-fab {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .whatsapp-fab svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Ensure FAB doesn't overlap with bottom CTA section on small screens */
+@media (max-height: 600px) {
+  .whatsapp-fab {
+    bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+}
+
+/* RTL support (no direction change needed for circular button) */
+[dir="rtl"] .whatsapp-fab {
+  right: auto;
+  left: 16px;
+}
+
+[dir="rtl"] @media (max-height: 600px) {
+  .whatsapp-fab {
+    bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+}
