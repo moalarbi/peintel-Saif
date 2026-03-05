@@ -286,6 +286,24 @@ header.scrolled {
   height: 100%;
   object-fit: cover;
 }
+
+/* Hero Video Styling */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+/* Desktop: Show video, hide mobile video */
+.hero-video-desktop {
+  display: block;
+}
+
+.hero-video-mobile {
+  display: none;
+}
 .hero-badge {
   position: absolute;
   bottom: 24px;
@@ -701,6 +719,13 @@ footer {
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { display: none; }
   .hero-video-bg, .hero-video-overlay {
+    display: block;
+  }
+  /* Mobile: Hide desktop video, show mobile background video */
+  .hero-video-desktop {
+    display: none !important;
+  }
+  .hero-video-mobile {
     display: block;
   }
   .hero-content h1, .hero-sub, .hero-tag, .stat-num, .stat-label {
