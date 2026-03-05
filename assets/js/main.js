@@ -22,6 +22,12 @@ async function setLang(lang) {
   document.documentElement.lang = lang;
   document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 
+  // Force Portfolio Carousel to always stay LTR as per requirements
+  const portfolioSection = document.getElementById('portfolio');
+  if (portfolioSection) {
+    portfolioSection.dir = 'ltr';
+  }
+
   // Update active button
   document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('lang-active'));
   const activeBtn = document.getElementById('btn-' + lang);

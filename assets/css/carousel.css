@@ -5,6 +5,15 @@
   padding: 100px 0;
   overflow: hidden;
   background: radial-gradient(circle at center, var(--blue-deep) 0%, var(--dark) 100%);
+  direction: ltr !important; /* Force LTR for all languages */
+}
+
+/* Ensure inner elements respect LTR */
+.portfolio-inner, 
+.swiper-portfolio, 
+.swiper-wrapper, 
+.swiper-slide {
+  direction: ltr !important;
 }
 
 /* Animated Gradient Wave Background */
