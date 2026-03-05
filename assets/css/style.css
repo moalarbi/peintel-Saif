@@ -79,6 +79,19 @@ button { font-family: var(--font-main); }
   background: var(--blue-main);
   color: var(--white);
 }
+
+/* Focus Styles for Accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--blue-light);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline-offset: 4px;
+}
 .btn-large { padding: 18px 40px; font-size: 17px; }
 .btn-full { width: 100%; justify-content: center; }
 
@@ -624,17 +637,20 @@ footer {
   background: var(--gray-light);
   border: none;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  font-size: 14px;
+  font-size: 18px;
   color: var(--gray);
   transition: var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
 }
-.modal-close:hover { background: #e0e0e0; color: var(--dark); }
+.modal-close:hover { background: #e0e0e0; color: var(--dark); transform: scale(1.1); }
+.modal-close:focus-visible { outline: 3px solid var(--blue-light); outline-offset: 2px; }
 .modal-content h3 {
   font-size: 26px;
   font-weight: 700;
@@ -715,11 +731,29 @@ footer {
   display: none;
 }
 
+/* RTL Fixes */
+[dir="rtl"] .step-arrow {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .pain-solution {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .solution-line {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { display: none; }
   .hero-video-bg, .hero-video-overlay {
     display: block;
+  }
+  /* Increase overlay darkness for better text readability on mobile */
+  .hero-video-overlay {
+    background: rgba(0, 0, 0, 0.55);
   }
   /* Mobile: Hide desktop video, show mobile background video */
   .hero-video-desktop {
@@ -736,6 +770,15 @@ footer {
   }
   .stat-divider {
     background: rgba(255,255,255,0.2);
+  }
+  /* Improve spacing on mobile */
+  .hero-btns {
+    gap: 20px;
+  }
+  /* Improve line-height for Arabic text */
+  [dir="rtl"] .hero-sub,
+  [dir="rtl"] .hero-content p {
+    line-height: 1.8;
   }
   .pain-inner { grid-template-columns: 1fr; }
   .process-steps { flex-direction: column; }
@@ -756,7 +799,13 @@ footer {
 }
 
 /* ===== FLOATING WHATSAPP ===== */
+/* Floating WhatsApp button disabled per client request */
+/* Users can access WhatsApp via main CTA buttons (header, hero, footer) */
 .whatsapp-float {
+  display: none !important;
+}
+
+.whatsapp-float-disabled {
   position: fixed;
   bottom: 30px;
   right: 30px;

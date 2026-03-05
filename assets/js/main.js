@@ -121,23 +121,67 @@ function closeModalOutside(e) {
 }
 
 function sendWhatsApp() {
-  const service = document.getElementById('serviceSelect').value || '';
-  const address = document.getElementById('address').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const details = document.getElementById('details').value.trim();
+  const serviceSelect = document.getElementById('serviceSelect');
+  const addressInput = document.getElementById('address');
+  const phoneInput = document.getElementById('phone');
+  const detailsInput = document.getElementById('details');
 
-  if (!address || !phone) {
-    alert(currentLang === 'ar' ? 'يرجى ملء العنوان والهاتف' : 'Veuillez remplir l\'adresse et le téléphone');
+  const service = serviceSelect.value.trim();
+  const address = addressInput.value.trim();
+  const phone = phoneInput.value.trim();
+  const details = detailsInput.value.trim();
+
+  // Validation messages
+  const validationMsgs = {
+    fr: {
+      service: 'Veuillez sélectionner un service',
+      address: 'Veuillez entrer votre adresse',
+      phone: 'Veuillez entrer un numéro de téléphone valide (au moins 8 chiffres)',
+    },
+    en: {
+      service: 'Please select a service',
+      address: 'Please enter your address',
+      phone: 'Please enter a valid phone number (at least 8 digits)',
+    },
+    ar: {
+      service: 'يرجى اختيار خدمة',
+      address: 'يرجى إدخال عنوانك',
+      phone: 'يرجى إدخال رقم هاتف صحيح (8 أرقام على الأقل)',
+    },
+  };
+
+  const msgs = validationMsgs[currentLang] || validationMsgs.fr;
+
+  // Validate service
+  if (!service) {
+    alert(msgs.service);
+    serviceSelect.focus();
     return;
   }
 
-  const msgs = {
+  // Validate address
+  if (!address) {
+    alert(msgs.address);
+    addressInput.focus();
+    return;
+  }
+
+  // Validate phone (basic check: at least 8 digits)
+  const phoneDigits = phone.replace(/\D/g, '');
+  if (phoneDigits.length < 8) {
+    alert(msgs.phone);
+    phoneInput.focus();
+    return;
+  }
+
+  // Build WhatsApp message
+  const whatsappMsgs = {
     fr: `Bonjour Peintel 👋%0AService: ${service}%0AAdresse: ${address}%0ATéléphone: ${phone}${details ? '%0ADétails: ' + details : ''}`,
     en: `Hello Peintel 👋%0AService: ${service}%0AAddress: ${address}%0APhone: ${phone}${details ? '%0ADetails: ' + details : ''}`,
     ar: `مرحبا Peintel 👋%0Aالخدمة: ${service}%0Aالعنوان: ${address}%0Aالهاتف: ${phone}${details ? '%0Aتفاصيل: ' + details : ''}`,
   };
 
-  const msg = msgs[currentLang] || msgs['fr'];
+  const msg = whatsappMsgs[currentLang] || whatsappMsgs.fr;
   window.open(`https://wa.me/33605537778?text=${msg}`, '_blank');
   closeModal();
 }
@@ -162,18 +206,20 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
 
+// Add focus styles for accessibility
+document.addEventListener('DOMContentLoaded', () => {
+  const style = document.createElement('style');
+  style.textContent = `
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--blue-light);
+      outline-offset: 2px;
+    }
+  `;
+  document.head.appendChild(style);
+});
+
 // Initialize
 setLang('fr');
-
-// WhatsApp Float Logic
-document.addEventListener('DOMContentLoaded', () => {
-  const waBtn = document.createElement('div');
-  waBtn.className = 'whatsapp-float';
-  waBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
-  waBtn.onclick = sendDirectWhatsApp;
-  document.body.appendChild(waBtn);
-
-  setTimeout(() => {
-    waBtn.classList.add('show');
-  }, 3000);
-});
