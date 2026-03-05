@@ -41,7 +41,7 @@ async function setLang(lang) {
       data = translationCache[lang];
     } else {
       // إذا لم تكن موجودة في الذاكرة المؤقتة، حمّلها من الملف
-      const res = await fetch(`locales/${lang}.json`);
+      const res = await fetch(`locales/${lang}.json?v=${new Date().getTime()}`);
       data = await res.json();
       // احفظها في الذاكرة المؤقتة للاستخدام المستقبلي
       translationCache[lang] = data;
@@ -50,7 +50,13 @@ async function setLang(lang) {
     // Translate elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
-      if (data[key]) el.textContent = data[key];
+      if (data[key]) {
+        if (key === 'pain_solution') {
+          el.innerHTML = data[key].replace(/\n/g, '<br>');
+        } else {
+          el.textContent = data[key];
+        }
+      }
     });
 
     // Update Logo Text
