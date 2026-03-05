@@ -358,8 +358,9 @@ header.scrolled {
 
 /* ===== PAIN SECTION ===== */
 .pain {
-  background: var(--off-white);
-  padding: 60px 0;
+  background: radial-gradient(circle at center, #f0f4f8 0%, var(--white) 100%);
+  padding: 100px 0;
+  overflow: hidden;
 }
 .pain-inner {
   display: grid;
@@ -370,41 +371,78 @@ header.scrolled {
 .pain-problems {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 .pain-item {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  background: white;
-  padding: 20px 24px;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--white);
+  padding: 24px;
   border-radius: var(--radius);
-  border-left: 4px solid #e74c3c;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--blue-light);
+  border-image: linear-gradient(to bottom, var(--blue-main), var(--blue-light)) 1 100%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
-.pain-icon { font-size: 24px; }
-.pain-item p {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--dark);
+.pain-item.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pain-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+.pain-icon {
+  color: var(--blue-main);
+  background: var(--gray-light);
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pain-text h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue-deep);
+  margin-bottom: 4px;
+}
+.pain-text p {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.6;
 }
 .pain-solution {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 30px;
 }
 .solution-line {
   width: 4px;
-  height: 80px;
+  height: 120px;
   background: var(--gradient);
   border-radius: 4px;
   flex-shrink: 0;
 }
 .pain-solution p {
-  font-size: 26px;
+  font-size: clamp(22px, 3vw, 28px);
   font-weight: 600;
   color: var(--blue-deep);
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .pain-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .pain-solution {
+    order: -1;
+  }
 }
 
 /* ===== SERVICES ===== */

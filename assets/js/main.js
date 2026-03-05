@@ -233,3 +233,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize
 setLang('fr');
+
+// Scroll Animation for Pain Section
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const items = entry.target.querySelectorAll('.pain-item');
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('animate');
+          }, index * 100); // Stagger delay
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const painSection = document.querySelector('.pain-problems');
+  if (painSection) {
+    observer.observe(painSection);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initScrollAnimations();
+});
